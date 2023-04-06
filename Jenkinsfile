@@ -1,19 +1,13 @@
 pipeline{
-	agent any
-	stages{
-		stage('Build'){
-			steps{
-				echo "building..."
-			}
+	agent {
+		docker {
+			image 'golang:latest'
 		}
+	}
+	stages{
 		stage('Testing'){
 			steps{
-				echo "testing..."
-			}
-		}
-		stage('Deploy'){
-			steps{
-				echo "deploying..."
+				sh 'golang --version'
 			}
 		}
 	}
