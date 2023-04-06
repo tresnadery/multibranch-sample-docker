@@ -1,12 +1,19 @@
 pipeline{
-	agent{
-		label "docker"
-	}
+	agent any
 	stages{
-		stage('hello'){
+		stage('Build'){
 			steps{
-				echo "hello"
-				sh "docker --version"
+				echo "building..."
+			}
+		}
+		stage('Testing'){
+			steps{
+				echo "testing..."
+			}
+		}
+		stage('Deploy'){
+			steps{
+				echo "deploying..."
 			}
 		}
 	}
