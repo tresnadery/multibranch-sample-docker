@@ -1,14 +1,12 @@
-pipeline{
-	agent {
-		docker {
-			image 'golang:latest'
-		}
-	}
-	stages{
-		stage('Testing'){
-			steps{
-				sh 'golang --version'
-			}
-		}
-	}
+pipeline {
+    agent {
+        docker { image 'node:18.16.0-alpine' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
 }
