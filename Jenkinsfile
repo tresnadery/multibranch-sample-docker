@@ -7,6 +7,7 @@ pipeline{
 	stages{
 		stage('Build'){
 			steps{
+				sh 'go mod tidy'
 				sh 'go build'
 			}
 		}
