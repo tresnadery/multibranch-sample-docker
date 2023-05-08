@@ -1,13 +1,13 @@
 pipeline{
 	agent {
 		docker {
-			image 'golang:latest'
+			image 'yeasy/simple-web:latest'
 		}
 	}
 	stages{
-		stage('Testing'){
+		stage('Running'){
 			steps{
-				sh 'go version'
+				sh 'docker run --rm -it -p 80:80 yeasy/simple-web:latest'
 			}
 		}
 	}
