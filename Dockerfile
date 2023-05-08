@@ -6,4 +6,4 @@ COPY . .
 
 RUN go mod tidy
 
-RUN go build
+RUN go run main.go
