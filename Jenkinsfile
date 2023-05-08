@@ -3,9 +3,9 @@ pipeline{
 		dockerfile true
 	}
 	stages{
-		stage('Test'){
+		stage('Run'){
 			steps{
-				sh 'go version'
+				sh 'docker run -d test-docker'
 			}
 		}
 	}
