@@ -1,9 +1,12 @@
 pipeline{
-	agent {
-		dockerfile true
-	}
+	agent any
 	stages{
-		stage('Run'){
+		stage('Build'){
+			steps{
+				sh 'docker build -t test-docker:latest'
+			}
+		}
+		stage("Run"){
 			steps{
 				sh 'docker run -d test-docker'
 			}
