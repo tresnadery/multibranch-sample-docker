@@ -5,9 +5,9 @@ pipeline{
 		}
 	}
 	stages{
-		stage('Running'){
+		stage('Build'){
 			steps{
-				sh 'go run main.go'
+				sh 'go build'
 			}
 		}
 	}
