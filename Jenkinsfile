@@ -8,7 +8,7 @@ pipeline{
 		}
 		stage("Deploy"){
 			steps{
-				sh 'echo ${env.CI_REGISTRY_PASSWORD} | docker login -u ${env.CI_REGISTRY_USER} --password-stdin ${env.CI_REGISTRY}'
+				sh "echo ${env.CI_REGISTRY_PASSWORD} | docker login -u ${env.CI_REGISTRY_USER} --password-stdin ${env.CI_REGISTRY}"
 			}
 		}
 	}
