@@ -6,9 +6,9 @@ pipeline{
 				sh 'docker build -t test-docker:latest .'
 			}
 		}
-		stage("Run"){
+		stage("Deploy"){
 			steps{
-				sh 'docker run -p 1323:1323 -d test-docker'
+				sh 'echo ${env.CI_REGISTRY_PASSWORD} | docker login -u ${env.CI_REGISTRY_USER} --password-stdin ${env.CI_REGISTRY}'
 			}
 		}
 	}
