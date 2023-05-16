@@ -4,9 +4,7 @@ pipeline{
 		stage("Test SSH"){
 			steps{
 				sshagent(credentials: ['slave-ssh']) {
-			      sh '''
-			          docker ps
-			      '''
+			     sshCommand remote: remote, command: "ls -lrt"
 			    }
 			}
 		}
