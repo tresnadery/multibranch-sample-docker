@@ -5,7 +5,7 @@ pipeline{
 			steps{
 				sshagent(credentials: ['slave-ssh']) {
 			      sh '''
-			          sudo docker ps
+			          docker ps
 			      '''
 			    }
 			}
