@@ -13,5 +13,10 @@ pipeline{
 				sh "docker push ${env.CI_REGISTRY}/test-docker:latest"
 			}
 		}
+		stage("Run Image"){
+			steps{
+				sh "docker run ${env.CI_REGISTRY}/test-docker:latest"
+			}
+		}
 	}
 }
