@@ -16,8 +16,7 @@ pipeline{
 		}
 		stage("Run Image"){
 			steps{
-				sh "echo ${env.CI_REGISTRY_PASSWORD} | docker login -u ${env.CI_REGISTRY_USER} --password-stdin ${env.CI_REGISTRY}"
-				sh "docker run -d test-docker:latest"
+				sh "ssh dery-2@103.52.114.253 | echo 'berhasil'"
 			}
 		}
 	}
