@@ -4,7 +4,11 @@ pipeline{
 		stage("Test SSH"){
 			steps{
 				sshagent(credentials: ['slave-ssh']) {
-			     sshCommand remote: remote, command: "ls -lrt"
+			      sh '''
+			          ssh dery-2@103.52.114.253 "
+			          	sudo docker ps
+			          "
+			      '''
 			    }
 			}
 		}
