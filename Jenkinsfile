@@ -5,9 +5,7 @@ pipeline{
 			steps{
 				sshagent(credentials: ['slave-ssh']) {
 			      sh '''
-			          ssh dery-2@103.52.114.253 "
-			          	sudo docker ps
-			          "
+			         ssh dery-2@103.52.114.253
 			      '''
 			    }
 			}
