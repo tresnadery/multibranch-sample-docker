@@ -16,7 +16,7 @@ pipeline{
 		}
 		stage("Run Image"){
 			steps{
-				sh "ssh dery-2@103.52.114.253 | echo 'berhasil'"
+				sh "ssh dery-2@103.52.114.253 | sudo docker pull ${env.CI_REGISTRY}/test-docker:latest"
 			}
 		}
 	}
