@@ -5,6 +5,8 @@ pipeline{
 			steps{
 				sshagent(credentials: ['slave-ssh']) {
 			      sh '''
+			      [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
+   					ssh-keyscan -t rsa,dsa 103.52.114.253 >> ~/.ssh/known_hosts
 			         ssh dery-2@103.52.114.253
 			      '''
 			    }
