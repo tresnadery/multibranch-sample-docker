@@ -21,7 +21,7 @@ pipeline{
 			      [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
    					ssh-keyscan -t rsa,dsa 103.52.114.253 >> ~/.ssh/known_hosts
 			      '''
-			      sh "ssh dery-2@103.52.114.253 'sudo docker pull ${env.CI_REGISTRY}/test-docker:latest || sudo docker run ${env.CI_REGISTRY}/test-docker:latest || sudo docker ps'"
+			      sh "ssh dery-2@103.52.114.253 'echo ${env.CI_REGISTRY_PASSWORD} | docker login -u ${env.CI_REGISTRY_USER} --password-stdin ${env.CI_REGISTRY} || sudo docker pull ${env.CI_REGISTRY}/test-docker:latest || sudo docker run ${env.CI_REGISTRY}/test-docker:latest || sudo docker ps'"
 			    }
 			}
 		}
